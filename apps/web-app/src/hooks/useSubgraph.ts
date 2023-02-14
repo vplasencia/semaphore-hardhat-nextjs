@@ -43,8 +43,6 @@ export default function useSubgraph(): SubgraphContextType {
 
         const { data } = await response.json()
 
-        console.info("data", data)
-
         setGreetings(data.greetings.map(({ greeting }: any) => greeting))
     }, [])
 
