@@ -1,0 +1,28 @@
+specVersion: 0.0.4
+description: Semaphore cli-template-hardhat-nextjs subgraph definition (The Graph).
+schema:
+    file: ./schema.graphql
+dataSources:
+    - kind: ethereum/contract
+      name: Greeter
+      network: goerli
+      source:
+          address: "0x6F2DEa6B3fc33c0E15D087b2e0d3d858e79CCD2D"
+          abi: Greeter
+          startBlock: 8486268
+      mapping:
+          kind: ethereum/events
+          apiVersion: 0.0.6
+          language: wasm/assemblyscript
+          entities:
+              - User
+              - Greeting
+          abis:
+              - name: Greeter
+                file: ./contract-artifacts/Greeter.json
+          eventHandlers:
+              - event: NewUser(uint256,bytes32)
+                handler: createUser
+              - event: NewGreeting(bytes32)
+                handler: createGreeting
+          file: ./src/mapping.ts
