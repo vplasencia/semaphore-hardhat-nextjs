@@ -1,7 +1,7 @@
 import { ByteArray, log } from "@graphprotocol/graph-ts"
-// @ts-ignore: typechain-types folder will be generated after contracts compilation
+// @ts-ignore
 import { NewGreeting, NewUser } from "../generated/Greeter/Greeter"
-// @ts-ignore: typechain-types folder will be generated after contracts compilation
+// @ts-ignore
 import { Greeting, User } from "../generated/schema"
 import { concat, hash } from "./utils"
 
